@@ -1,0 +1,22 @@
+@use './feed.scss';
+@use './components/kebob-menu.scss';
+@use './components/post.scss';
+@use './components/textarea.scss';
+
+
+@use "sass:map";
+@use "@/styles/bootstrap";
+
+
+.button-primary {
+  background-color: map.get(bootstrap.$primary, 'base');
+  &:hover {
+    background-color: map.get(bootstrap.$primary, 'darken-4');
+  }
+}
+
+.linkedin-icon {
+  color: rgba(255, 255, 255, 0.9);
+  width: 41px;
+  height: 41px;
+}

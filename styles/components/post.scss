@@ -1,0 +1,126 @@
+.comment {
+  flex-basis: 100%;
+   background-color: #f2f2f2;
+   border-bottom-left-radius: 6px;
+   border-bottom-right-radius: 6px;
+}
+
+.c_account-details {
+  margin-top: 0;
+  // min-width: 200px;
+}
+
+.post-title {
+  font-size: 14px;
+}
+.post-subtitle {
+  font-size: 12px;
+}
+
+.bg-card image {
+  height: 45px;
+  width: 45px;
+}
+
+.post-cta-btn {
+  border: none;
+  cursor: pointer;
+}
+
+.divider {
+  width: 100%;
+  padding: .5rem 1.5rem 1.5rem 1.5rem;
+  div {
+    height: 1px;
+    background-color: rgba(0, 0, 0, .2);
+  }
+}
+
+.social-interaction-cta-row {
+  width: 100%;
+}
+
+.liked {
+  // color:  rgb(58, 97, 182);
+  color:  rgb(46, 78, 146);
+}
+
+.social-details-social-counts {
+  .reaction-icon {
+    background-color: rgb(124, 156, 224);
+    border-radius: 50%;
+    padding: 5px;
+  }
+  svg {
+    color: rgb(221, 236, 248);
+  }
+  .post-reactions {
+    cursor: pointer;
+    &:hover span {
+      text-decoration: underline;
+      color: rgb(124, 156, 224);
+    }
+  }
+  .post-cta-btn { // @TODO review styles
+    &:hover span {
+      color: rgb(124, 156, 224);
+    }
+  }
+  span {
+    font-size: 12px;
+  }
+  .comment-stats {
+    cursor: pointer;
+  }
+  .comment-stats:hover {
+    text-decoration: underline;
+    color: rgb(124, 156, 224);
+  }
+}
+
+
+.reaction-divider {
+  width: 100%;
+  padding: .5rem 1em 1rem .5rem;
+  div {
+    height: 1px;
+    background-color: rgba(0, 0, 0, .2);
+  }
+}
+
+.reaction-insight-type-icon {
+  position: absolute;
+  top: 30px;
+  left: 32px;
+  svg {
+    color: rgb(221, 236, 248);
+    width: .6rem;
+    height: .6rem;
+  }
+  .reaction-icon {
+    background-color: rgb(124, 156, 224);
+    border-radius: 50%;
+    padding: 3px;
+  }
+  &:hover span {
+    text-decoration: underline;
+    color: rgb(124, 156, 224);
+  }
+}
+
+.comment-account-avatar {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+
+@media (max-width: 480px) {
+  .divider {
+    width: 100%;
+    padding: .5rem 0rem 1.5rem 0rem;
+  }
+
+}

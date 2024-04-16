@@ -1,0 +1,27 @@
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000000;
+  opacity:  0;
+  display:"none";
+  z-index: 120;
+  transition: all 0.8s cubic-bezier(0.46, 0.01, 0.32, 1);
+}
+
+.overlay_open {
+opacity: .5;
+display: "block";
+}
+
+
+@media (prefers-color-scheme: dark) {
+  .overlay_open {
+    opacity: 0.46;
+    background-color: rgb(33, 33, 33);
+    border-color: rgb(33, 33, 33);
+  }
+}

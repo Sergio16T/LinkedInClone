@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+
+// @RELATION ATTRIBUTE STORES THE FOREIGN KEY IN MODEL
+
+model Account {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  username String @unique
+  photoUrl String
+  posts Post[]
+  comment Comment[]
+  reactions ReactionInsights[]
+  followerCount Int // Should be returned in count(followers) aggregate // for now hard code
+  accountType  AccountType @relation(fields: [accountTypeId], references: [id])
+  accountTypeId Int
+  headline String
+}
+
+model AccountType {
+  id Int @id @default(autoincrement())
+  type String
+  account Account[]
+}
+
+model ReactionInsights {
+  id Int @id @default(autoincrement())
+  account    Account    @relation(fields: [likedBy], references: [id])
+  likedBy Int  // update to be more generic createdBy
+  likedOn DateTime   @default(now()) // createDate
+  post Post? @relation(fields: [postId], references: [id])
+  postId Int?
+  comment Comment? @relation(fields: [commentId], references: [id])
+  commentId  Int?
+}
+
+// ReactionType
+
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String?
+  content   String
+  account      Account    @relation(fields: [createdBy], references: [id])
+  createdBy Int
+  createDate  DateTime  @default(now())
+  commentList Comment[]
+  reaction ReactionInsights[]
+}
+
+model Comment {
+  id Int  @id @default(autoincrement())
+  body String
+  reaction ReactionInsights[]
+
+  post Post @relation(fields: [postId], references: [id])
+  postId Int
+
+  account Account @relation(fields: [createdBy], references: [id])
+  createdBy Int
+  createDate DateTime @default(now())
+
+  children Comment[] @relation("children")
+  comment Comment? @relation("children", fields: [parentId], references: [id])
+  parentId Int?
+}
+
