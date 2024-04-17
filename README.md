@@ -29,6 +29,7 @@ npm install
 ```
 
 ### Update ENV Variables
+Create .env file in the root of directory and add the following environment variable
 ```zsh
 DATABASE_URL="file:./dev.db"
 ```
