@@ -15,10 +15,7 @@ import FeedContext from '@/lib/page-context';
 import SolidThumbsUp from './Icon/SolidThumbsUp';
 import TextArea from './Form/TextArea';
 import { Button } from './Button';
-import data from '@emoji-mart/data'
-import EmojiPicker from '@emoji-mart/react'
-
-import FaceSmile from './Icon/FaceSmile';
+import EmojiActionMenu from './Form/EmojiActionMenu';
 
 type Props = {
   children?: React.ReactNode;
@@ -378,7 +375,7 @@ function PostItem({ post }: Props ) {
           <CardRow className="flex pb-3" style={{ position: 'relative' }}>
             <TextArea
               appendInnerIcon={
-                <EmojiActionMenu onEmojiSelect={addEmojiToComment}/>
+                <EmojiActionMenu id={`post-${post.id}-comment-cta-emoji`} onEmojiSelect={addEmojiToComment} />
               }
               errorMessages={state.commentError ? [state.commentError] : undefined}
               id={`${post.id}-comment-textarea`}
@@ -415,27 +412,5 @@ function PostItem({ post }: Props ) {
   );
 }
 
-type EmojiActionMenuProps = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  onEmojiSelect: any; // Emoji Market Types Not Readily Available. Allow Any. @Todo review
-}
-const EmojiActionMenu = ({ onEmojiSelect }: EmojiActionMenuProps) => {
-  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
-  return (
-    <div className="emoji-action-item">
-      <button type="button" onClick={() => setShowEmojiPicker(!showEmojiPicker)}>
-        <FaceSmile/>
-      </button>
-      {showEmojiPicker &&
-        <EmojiPicker
-          data={data}
-          onClickOutside={() => setShowEmojiPicker(false)}
-          onEmojiSelect={onEmojiSelect}
-        />
-      }
-    </div>
-  )
-}
-
 export default PostItem;
-export { PostCommentListContext, EmojiActionMenu };
+export { PostCommentListContext };
