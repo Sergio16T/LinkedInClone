@@ -94,8 +94,7 @@ export default function ReactionInsightsModal({ open, onClose, item }: Props) {
     if (open !== previousModalState) {
       if (open) {
         getReactionInsights();
-      }
-      if (!open) {
+      } else {
         setReactionInsights([]);
       }
     }

@@ -29,7 +29,7 @@ export default function NavigationMenu({ children }: { children: React.ReactNode
   return (
     <>
       <div>
-        <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-gray-900 p-0 shadow-sm sm:px-2">
+        <header className="sticky top-0 z-40 flex items-center gap-x-6 bg-gray-900 p-0 shadow-sm sm:px-2">
           <div className="w-full flex grow gap-y-5 overflow-y-auto bg-gray-900">
             <div className="px-2 flex basis-1/4 justify-center items-center">
               <LinkedInIcon/>
@@ -64,11 +64,9 @@ export default function NavigationMenu({ children }: { children: React.ReactNode
               </ul>
             </nav>
           </div>
-        </div>
+        </header>
 
-        <main className="py-10 lg:pl-72">
-          <div className="px-0 sm:px-6 lg:px-8">{children}</div>
-        </main>
+        <div className="py-10 px-0 sm:px-6 lg:px-8">{children}</div>
       </div>
     </>
   );
