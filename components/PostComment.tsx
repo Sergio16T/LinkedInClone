@@ -6,7 +6,8 @@ import Image from 'next/image';
 
 import { format } from 'date-fns';
 import { AccountTypeEnum, Comment } from '@/lib/types';
-import { EmojiActionMenu, PostCommentListContext } from './Post';
+import { PostCommentListContext } from './Post';
+import EmojiActionMenu from './Form/EmojiActionMenu';
 import PostComments from './Comments';
 import TextArea from './Form/TextArea';
 import { Button } from './Button';
@@ -271,7 +272,7 @@ function PostComment({ comment }: Props) {
             <CardRow className="flex pb-3" style={{ position: 'relative' }}>
               <TextArea
                 appendInnerIcon={
-                  <EmojiActionMenu onEmojiSelect={addEmojiToComment}/>
+                  <EmojiActionMenu id={`comment-${comment.id}-cta-emoji`} onEmojiSelect={addEmojiToComment}/>
                 }
                 errorMessages={state.commentError ? [state.commentError] : undefined}
                 id={`${comment.id}-child-comment-textarea`}
